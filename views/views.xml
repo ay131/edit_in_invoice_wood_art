@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <!-- ============== [inherited_hr_employee_hne_view_form] ============= -->
+        <!--inherited_hr_employee_hne_view_form-->
+        <record id="inherited_in_view_form" model="ir.ui.view">
+            <field name="name">inherited_in_view_form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='invoice_payments_widget']" position="attributes">
+                    <attribute name="attrs">{'invisible': [(1,'=',1)]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='tax_totals_json']" position="replace">
+                    <field name="amount_total"/>
+                    <field name="ob1"/>
+                    <field name="amount_tax"/>
+                    <field name="ob2"/>
+                 </xpath>
+
+
+            </field>
+        </record>
+        <!--===================================================================-->
+    </data>
+</odoo>
